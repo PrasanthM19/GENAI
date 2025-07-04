@@ -1,0 +1,59 @@
+import streamlit as st
+import numpy as np
+import pandas as pd
+import plotly.express as px
+
+st.set_page_config(page_title="📐 Function Calculator & Plotter", layout="centered")
+st.title("📐 Function Calculator with Graph")
+
+# Choose function
+function = st.selectbox("Choose a function to calculate", ["sin", "cos", "tan", "exp", "log", "sqrt"])
+
+# Input range
+col1, col2, col3 = st.columns(3)
+with col1:
+    start = st.number_input("Start value (x)", value=0.0)
+with col2:
+    end = st.number_input("End value (x)", value=10.0)
+with col3:
+    step = st.number_input("Step size", value=0.1)
+
+if end <= start:
+    st.error("End must be greater than start.")
+elif step <= 0:
+    st.error("Step size must be positive.")
+else:
+    # Generate x values
+    x = np.arange(start, end, step)
+
+    # Compute selected function
+    try:
+        if function == "sin":
+            y = np.sin(x)
+        elif function == "cos":
+            y = np.cos(x)
+        elif function == "tan":
+            y = np.tan(x)
+        elif function == "exp":
+            y = np.exp(x)
+        elif function == "log":
+            y = np.log(x)
+        elif function == "sqrt":
+            y = np.sqrt(x)
+        else:
+            y = x
+    except Exception as e:
+        st.error(f"Error calculating function: {e}")
+        y = x
+
+    # DataFrame
+    df = pd.DataFrame({"x": x, f"{function}(x)": y})
+
+    # Display table
+    st.subheader("📊 Computed Values")
+    st.dataframe(df)
+
+    # Plot
+    st.subheader("📈 Graph")
+    fig = px.line(df, x="x", y=df.columns[1], title=f"Graph of {function}(x)")
+    st.plotly_chart(fig, use_container_width=True)
