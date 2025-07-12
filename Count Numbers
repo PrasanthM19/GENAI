@@ -1,0 +1,31 @@
+def count_numbers():
+    try:
+        # Input: comma-separated numbers
+        input_list = input("Enter numbers separated by commas (e.g. 5, -3, 0, 7): ")
+        numbers = [int(num.strip()) for num in input_list.split(",")]
+
+        # Initialize counters
+        positive_count = 0
+        negative_count = 0
+        zero_count = 0
+
+        # Count numbers
+        for num in numbers:
+            if num > 0:
+                positive_count += 1
+            elif num < 0:
+                negative_count += 1
+            else:
+                zero_count += 1
+
+        # Output results
+        print("\n----- Count Summary -----")
+        print(f"Positive numbers: {positive_count}")
+        print(f"Negative numbers: {negative_count}")
+        print(f"Zeroes          : {zero_count}")
+
+    except ValueError:
+        print("Invalid input. Please enter only integers separated by commas.")
+
+# Run the function
+count_numbers()
