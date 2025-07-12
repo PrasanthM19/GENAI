@@ -1,0 +1,15 @@
+def main():
+    # Ask for user input
+    name = input("Please enter your name: ")
+    age = input("How old are you? ")
+    color = input("What is your favorite color? ")
+
+    # Generate personalized message
+    message = f"Hello {name}! At {age} years old, it's great that your favorite color is {color}. Have a fantastic day!"
+
+    # Output the message
+    print("\n--- Your Personalized Greeting ---")
+    print(message)
+
+if __name__ == "__main__":
+    main()
