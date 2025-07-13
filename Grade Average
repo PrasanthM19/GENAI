@@ -1,0 +1,19 @@
+# Grade Average Calculator
+
+# Step 1: Input 5 test scores
+scores = []
+for i in range(5):
+    score = float(input(f"Enter score {i+1}: "))
+    scores.append(score)
+
+# Step 2: Calculate average
+average = sum(scores) / len(scores)
+
+# Step 3: Determine pass/fail
+# You can change the threshold (e.g., 50) as needed
+threshold = 40
+status = "Pass" if average >= threshold else "Fail"
+
+# Step 4: Print result
+print(f"\nAverage Score: {average:.2f}")
+print(f"Result: {status}")
