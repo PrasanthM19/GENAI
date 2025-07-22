@@ -1,0 +1,12 @@
+# Sample list
+numbers = [5, 12, 8, 21, 3, 14]
+
+# Assume the first number is the largest initially
+largest = numbers[0]
+
+# Loop through the list to find the largest
+for num in numbers:
+    if num > largest:
+        largest = num
+
+print("The largest number is:", largest)
