@@ -1,0 +1,17 @@
+# Get word input from user
+word = input("Enter a word: ")
+cipher_text = ""
+
+for char in word:
+    if char.isalpha():
+        # Shift character
+        if char.islower():
+            shifted = chr((ord(char) - ord('a') + 1) % 26 + ord('a'))
+        else:
+            shifted = chr((ord(char) - ord('A') + 1) % 26 + ord('A'))
+        cipher_text += shifted
+    else:
+        # Keep non-alphabet characters unchanged
+        cipher_text += char
+
+print("Ciphered word:", cipher_text)
