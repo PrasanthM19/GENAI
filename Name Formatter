@@ -1,0 +1,17 @@
+# Get full name from user
+full_name = input("Enter your full name (First Last): ")
+
+# Split the name into parts
+parts = full_name.strip().split()
+
+# Basic validation
+if len(parts) < 2:
+    print("Please enter at least first and last name.")
+else:
+    first = parts[0]
+    last = parts[-1]  # Supports middle names too
+
+    # Formats
+    print("First Last:", first, last)
+    print("Last, First:", f"{last}, {first}")
+    print("Initials:", f"{first[0].upper()}.{last[0].upper()}.")
