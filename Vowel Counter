@@ -1,0 +1,13 @@
+# Input from user
+word = input("Enter a word: ")
+
+# Define vowels
+vowels = "aeiouAEIOU"
+count = 0
+
+# Loop through each letter in the word
+for letter in word:
+    if letter in vowels:
+        count += 1
+
+print("Number of vowels:", count)
