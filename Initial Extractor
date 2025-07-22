@@ -1,0 +1,10 @@
+# Get full name from user
+full_name = input("Enter your full name: ")
+
+# Split the name into parts (handles middle names too)
+name_parts = full_name.strip().split()
+
+# Extract the first letter of each part and capitalize it
+initials = ''.join([part[0].upper() for part in name_parts])
+
+print("Initials:", initials)
