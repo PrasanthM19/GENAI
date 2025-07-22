@@ -1,0 +1,18 @@
+# Get paragraph input from user
+paragraph = input("Enter a paragraph: ")
+
+# Count characters (excluding spaces if needed)
+character_count = len(paragraph)
+
+# Count words
+words = paragraph.split()
+word_count = len(words)
+
+# Count sentences (based on ., !, ? as sentence enders)
+import re
+sentence_count = len(re.findall(r'[.!?]', paragraph))
+
+# Display results
+print("Characters:", character_count)
+print("Words:", word_count)
+print("Sentences:", sentence_count)
